@@ -18,11 +18,4 @@ set :deploy_group,"pomeo"
 #========================
 role :app,        "oneplus.sovechkin.com"
 
-after "deploy:create_symlink", "deploy:go_compile", "deploy:restart"
-
-namespace :deploy do
-    desc "Compile"
-    task :go_compile do
-      run "cd #{current_path} && go build src/oneplus.go"
-    end
-  end
+after "deploy:create_symlink", "deploy:restart"
